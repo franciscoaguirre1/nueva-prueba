@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg ">
+  <div class="container d-flex justify-content-center">
+    <span class="navbar-brand">App test Ministerio</span>
+  </div>
+</nav>
+
+<div class="container-fluid mt-3">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-6 text-center">
+      <button (click)="leerTablaPostulantes()" class="btn btn-warning">Obtener datos</button>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">CUIL</th>
+        <th scope="col">CUIL Cotitular</th>
+        <th scope="col">Email</th>
+        <th scope="col">Grupo Unico ID</th>
+        <th scope="col">Inscripción ID</th>
+        <th scope="col">Tel</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let postulante of postulantes; let i = index">
+      <tr>
+        <th scope="row">{{i+1}}</th>
+        <td>{{postulante.APELLIDOS}}</td>
+        <td>{{postulante.NOMBRES}}</td>
+        <td>{{postulante.CUIL}}</td>
+        <td>{{postulante.CUIL_COTITULAR}}</td>
+        <td>{{postulante.EMAIL}}</td>
+        <td>{{postulante.GRUPO_UNICO_ID}}</td>
+        <td>{{postulante.INSCRIPCION_ID}}</td>
+        <td>{{postulante.TEL}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
