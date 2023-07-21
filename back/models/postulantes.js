@@ -10,8 +10,7 @@ exports.leerPostulantes = async (req, res) => {
             data: postulantes[0],
             sqlMsg: 'OK',
             resMsg: 'OK'
-        }
-            console.log(data.postulantes);
+        }   
             res.status(200).send(data)
     } catch (error) {
         const data = {
