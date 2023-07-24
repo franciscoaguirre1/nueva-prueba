@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: "agregar"
+    apiUrl: "http://localhost:8090"
   };

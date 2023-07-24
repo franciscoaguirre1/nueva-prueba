@@ -1,5 +1,18 @@
 version: "3.8"
 services: 
-  back: 
-  front:
-  mysql:
+  test-app: 
+    build: ./
+    restart: unless-stopped
+    container_name: test-app
+    environment:
+      DB_HOST: 'host.docker.internal'
+      DB_USER: 'root'
+      DB_PASSWORD: 'PerritoMalvado'
+      DB_NAME: '10milviviendas'
+    ports: 
+    - '8090:8090'
+    volumes: 
+      - /app/back/node_modules
+    stdin_open: true
+    tty: true
+    #command: npm run dev
