@@ -26,9 +26,10 @@ exports.leerPostulantes = async (req, res) => {
 }
 
 exports.leerDatosOracle = async (req, res) => {
-    const mconnection = await oracledb.getConnection(orcaleDbConfig);
+    const connection = await oracledb.getConnection(orcaleDbConfig);
     try {
-        const postulantes = await conn.query(`CALL PR_OBTENER_MUTUO_PERSONA(cuil)`)
+        const postulantes = await connection.execute(`CALL PR_OBTENER_MUTUO_PERSONA(cuil)`)
+        console.log(postulantes);
         const data = {
             data: postulantes[0],
             sqlMsg: 'OK',
@@ -43,7 +44,7 @@ exports.leerDatosOracle = async (req, res) => {
         }
         res.status(500).send(data)
     } finally{
-        conn.release()
+        connection.close()
     }
 }
 
